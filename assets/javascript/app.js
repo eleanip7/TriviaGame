@@ -43,7 +43,7 @@ $(document).ready(function () {
     var correctCount = 0;
     var wrongCount = 0;
     var unanswerCount = 0;
-    var timer = 20;
+    var timer = 30;
     var intervalId;
     var userGuess = "";
     var running = false;
@@ -87,21 +87,25 @@ $(document).ready(function () {
     }
 
 
+
     function stop() {
         running = false;
         clearInterval(intervalId);
     }
 
-    //pick a question from the object above and display it
+    //pick a question from the questions object above and display it
     function displayQuestion() {
 
         index = Math.floor(Math.random() * questions.length);
         pick = questions[index];
 
 
+        //iterate through the array containing the answer chioces
         $("#questionblock").html("<h2>" + pick.question + "</h2>");
         for (var i = 0; i < pick.choice.length; i++) {
             var userChoice = $("<div>");
+
+            //create class to display answer choices
             userChoice.addClass("answerchoice");
             userChoice.html(pick.choice[i]);
             //assign array position to it so can check answer
@@ -111,12 +115,11 @@ $(document).ready(function () {
         }
 
 
-
-
         $(".answerchoice").on("click", function () {
 
             userGuess = parseInt($(this).attr("data-guessvalue"));
 
+            //checks for correct or incorrect gueses
             if (userGuess === pick.answer) {
                 stop();
                 correctCount++;
@@ -132,7 +135,14 @@ $(document).ready(function () {
                 hidepicture();
             }
         })
+
+        $(".answerchoice").mouseenter(function () {
+            $(this).css({"color": "red", "font-weight": "bold" });
+        }).mouseleave(function () {
+            $(this).css({"color": "black", "font-weight": ""});
+        })
     }
+
 
 
     function hidepicture() {
@@ -142,7 +152,7 @@ $(document).ready(function () {
 
         var hidpic = setTimeout(function () {
             $("#answerblock").empty();
-            timer = 20;
+            timer = 30;
 
 
             if ((wrongCount + correctCount + unanswerCount) === qCount) {

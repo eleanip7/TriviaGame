@@ -9,8 +9,9 @@
 }
 
 body {
-    background-image: url("../images/stock-photo-metal-knight-swords-background-close-up-the-concept-knights-572778259.jpg");
-    background-repeat: repeat-x;
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
 h1 {
@@ -20,3 +21,4 @@ h1 {
 h2 {
     font-size: 25px;
 }
+
