@@ -1,0 +1,22 @@
+.jumbotron-fluid {
+    margin: auto; 
+    width: 70%;
+    text-align: center;
+}
+
+.btn-success {
+    margin-top: 20px; 
+}
+
+body {
+    background-image: url("../images/stock-photo-metal-knight-swords-background-close-up-the-concept-knights-572778259.jpg");
+    background-repeat: repeat-x;
+}
+
+h1 {
+    border-bottom: 2px solid gray;
+}
+
+h2 {
+    font-size: 25px;
+}
